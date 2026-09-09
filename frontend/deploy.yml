@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend 
+  namespace: app1-ns 
+spec:
+  selector:
+    matchLabels:
+      app: frontend 
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend 
+        image: himanshu1236/app1-frontend:v1.0.0.0
+        resources:
+          limits:
+            memory: "300Mi"
+            cpu: "500m"
+          requests: 
+            memory: 400Mi 
+            cpu: 500m 
+        ports:
+        - containerPort: 4000 
+
+        env: 
+          - name: BACKEND_URL 
+            value: http://backend-svc:5000/api/message 
