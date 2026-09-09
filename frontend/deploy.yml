@@ -17,11 +17,10 @@ spec:
         image: himanshu1236/app1-frontend:v1.0.0.0
         resources:
           limits:
-            memory: "300Mi"
-            cpu: "500m"
+            memory: 300Mi
+            cpu: 300m 
           requests: 
-            memory: 400Mi 
-            cpu: 500m 
+            memory: 256Mi 
         ports:
         - containerPort: 4000 
 
